@@ -63,29 +63,28 @@
 <header id="top" class="header">
     <div class="text-vertical-center">
 
-        <h1 th:inline="text">Added: [[${song.name}]] by [[${song.artist}]]</h1>
-
+        <h1>New Song</h1>
+        <h3>Enter your song's information here</h3>
         <div>
             <br>
 
             <!--here is where to insert the form-->
+            <form action="#" th:action="@{/songform}" th:object="${song}" method="post">
+
+               <p>Name: <input type="text" th:field="*{name}" />
+                Artist: <input type="text" th:field="*{artist}" />
+                Album <input type="text" th:field="*{album}" /></p>
+                <p>Rating: <input type="number" th:field="*{rating}" />
+                Year: <input type="number" th:field="*{year}" /></p>
+                <input type="submit" value="Submit"/>
+            </form>
+
             <!--
-             <form action="#" th:action="@{/songform}" th:object="${song}" method="post">
-
-                 <p>Name: <input type="text" th:field="*{name}" />
-                     Artist: <input type="text" th:field="*{artist}" />
-                     Album <input type="text" th:field="*{album}" /></p>
-                 <p>Rating: <input type="number" th:field="*{rating}" />
-                     Year: <input type="number" th:field="*{year}" /></p>
-                 <input type="submit" value="Submit"/>
-             </form>-->
-
-
-            <h3 th:inline="text">The song name was [[${song.name}]].<br />
+            <p th:inline="text">The song name was [[${song.name}]].<br />
         The artist name is [[${song.artist}]].<br />
         The album name is [[${song.album}]].<br />
         The rating was [[${song.rating}]] and the year it came out on was [[${song.year}]].
-
+        -->
 
             <h3>Free Music Database &amp; Cool Things</h3>
             <br>

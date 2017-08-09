@@ -7,10 +7,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
+    @GetMapping("/")
+    public String index(Model model){
+        model.addAttribute("song", new Song());
+        return "index";
+    }
     @GetMapping("/songform")
     public String loadFormPage(Model model){
         model.addAttribute("song", new Song());
